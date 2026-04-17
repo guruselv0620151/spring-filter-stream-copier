@@ -6,7 +6,13 @@ plugins {
 
 group = group_name
 version = version_name
+bootJar {
+  enabled = false
+}
 
+jar {
+  enabled = true
+}
 java {
     sourceCompatibility = java_version
     targetCompatibility = java_version
@@ -45,9 +51,7 @@ tasks.jar {
     attributes["Main-Class"] = "${group_name}.Application"
   }
 }
-tasks.named('bootJar') {
-  duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-}
+
 tasks.named('test') {
   // select test framework before configuring options
   useJUnitPlatform()
