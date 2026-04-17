@@ -53,28 +53,6 @@ tasks.named('test') {
   }
 }
 
-tasks.named("bootJar") {
-    launchScript{
-        enabled = true
-    }
-    enabled = true
-    archiveFileName = "${project_name}.${archiveExtension.get()}"
-}
-
-bootJar {
-    layered {
-        enabled = true
-        application {
-//            layer = 'application'
-            dependencies {
-                // Add any dependencies that should be included in the application layer
-            }
-        }
-        springBoot {
-//            layer = 'spring-boot'
-        }
-    }
-}
 
 /*************************************
  * docker images
