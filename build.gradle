@@ -45,14 +45,15 @@ tasks.jar {
     attributes["Main-Class"] = "${group_name}.Application"
   }
 }
-
+tasks.named('bootJar') {
+  duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
 tasks.named('test') {
   // select test framework before configuring options
   useJUnitPlatform()
   options {
   }
 }
-
 
 /*************************************
  * docker images
